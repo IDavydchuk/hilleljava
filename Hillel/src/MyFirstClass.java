@@ -22,7 +22,6 @@ public class MyFirstClass {
         int age = 38;
         long age2 = 155;
         System.out.println(a + greeting);
-
     }
 
     public static void greeting(){
