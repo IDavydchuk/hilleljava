@@ -19,6 +19,9 @@ public class HomeWork02_03 {
         String input = scaner.nextLine();
         int myKey[];
         myKey = createMyKey(arraySize);
+        System.out.println("myArray "+Arrays.toString(myKey));
+        myKey = sortMyArrayBooble(myKey);
+        System.out.println("myArraySort "+Arrays.toString(myKey));
 
         String myEncodeString = cryptString(input, myKey);
         System.out.println("myIncodeString \n" + myEncodeString);
@@ -31,9 +34,6 @@ public class HomeWork02_03 {
         myArray = new int[arraySize];
         for (int j=0; j < myArray.length; j++){
             myArray[j]= random.nextInt(10);}
-        System.out.println("myArray "+Arrays.toString(myArray));
-        myArray = sortMyArrayBooble(myArray);
-        System.out.println("myArraySort "+Arrays.toString(myArray));
         return myArray;
     }
     public static int[] sortMyArrayBooble(int[] myArray){
@@ -55,14 +55,9 @@ public class HomeWork02_03 {
         int incr;
         //System.out.println(Arrays.toString(chars));
         for (int i=0; i< chars.length; i++){
-            if (chars.length >= key.length){
-                incr = i- Math.abs(i/key.length)*key.length;
-                chars[i] ^= key[incr];
+            incr = i % key.length;
+            chars[i] ^= key[incr];
             }
-            else {
-                chars[i] ^= key[i];
-            }
-        }
         String someString = String.copyValueOf(chars);
         return someString;
     }
